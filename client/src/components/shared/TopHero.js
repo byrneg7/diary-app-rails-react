@@ -21,8 +21,8 @@ const TopHero = () => {
             <div className="col-md-12 col-md-offset-0">
               <div className="animate-box">
                 <h2>Take on your biggest projects and goals</h2>
-                <p>with Unapp's high quality features</p>
-                <p><a href="gallery.html" className="btn btn-primary btn-lg btn-custom">Get premium</a></p>
+                <p>with logbook's interactive journal helper</p>
+                <p><a href="gallery.html" className="btn btn-primary btn-lg btn-custom">Sign up</a></p>
               </div>
             </div>
           </div>

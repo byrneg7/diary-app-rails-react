@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="row row-pb-md">
           <div className="col-md-3 colorlib-widget">
-            <h4>About unapp</h4>
+            <h4>About logbook</h4>
             <p>Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in
               Bookmarksgrove right at the coast of the Semantics</p>
             <p>

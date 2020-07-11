@@ -7,7 +7,7 @@ const LandingNavbar = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2">
-              <div id="colorlib-logo"><a href="index.html">Unapp</a></div>
+              <div id="colorlib-logo"><a href="index.html">logbook</a></div>
             </div>
             <div className="col-md-10 text-right menu-1">
               <ul>

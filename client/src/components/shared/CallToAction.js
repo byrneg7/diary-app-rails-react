@@ -10,7 +10,7 @@ const CallToAction = () => {
         <div className="row">
           <div className="col-md-10 col-md-offset-1 text-center colorlib-heading animate-box">
             <h2>Already trusted by over 10,000 users</h2>
-            <p>Subscribe to receive unapp tips from instructors right to your inbox.</p>
+            <p>Subscribe to receive logbook tips right to your inbox.</p>
           </div>
         </div>
         <div className="row animate-box">
