@@ -6,7 +6,6 @@ import IconRow from '../shared/IconRow';
 import VideoHero from '../shared/VideoHero';
 import AlternatingImgTextHero from '../shared/AlternatingImgTextHero';
 import CallToAction from '../shared/CallToAction';
-import ListsContainer from '../lists/ListsContainer';
 
 const LandingPage = () => {
   return(
@@ -17,7 +16,6 @@ const LandingPage = () => {
       <VideoHero/>
       <AlternatingImgTextHero/>
       <CallToAction/>
-      <ListsContainer/>
     </>
   )
 };
