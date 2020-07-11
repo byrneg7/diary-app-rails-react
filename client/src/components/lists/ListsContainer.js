@@ -14,11 +14,8 @@ const ListsContainer = () => {
       .catch(error => console.log(error))
   }, []);
 
-  return (
-    <div className="Lists-container">
-      Lists
-    </div>
-  )
+  return null
+
 };
 
 export default ListsContainer;
