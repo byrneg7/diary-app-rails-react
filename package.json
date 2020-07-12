@@ -1,19 +1,11 @@
 {
-  "name": "server",
+  "name": "react-and-rails",
   "engines": {
-    "node": "14.4.0"
+    "node": "6.3.1"
   },
   "scripts": {
     "build": "cd client && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build public/",
+    "deploy": "cp -a client/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
-  },
-  "private": true,
-  "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "turbolinks": "^5.2.0"
-  },
-  "version": "0.1.0"
+  }
 }
