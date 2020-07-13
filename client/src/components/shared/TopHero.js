@@ -1,6 +1,9 @@
 import React from 'react';
+import { openModal } from "../modals/openModal";
+import { useDispatch } from "react-redux";
 
 const TopHero = () => {
+  const dispatch = useDispatch();
   return (
     <section id="home" className="video-hero" data-section="home">
       <div className="overlay"/>
@@ -22,7 +25,11 @@ const TopHero = () => {
               <div className="animate-box">
                 <h2>Take on your biggest projects and goals</h2>
                 <p>with logbook's interactive journal helper</p>
-                <p><a href="gallery.html" className="btn btn-primary btn-lg btn-custom">Sign up</a></p>
+                <div className="btn btn-primary btn-lg btn-custom"
+                     onClick={() => openModal(dispatch, 'signup')}
+                >
+                  Sign up
+                </div>
               </div>
             </div>
           </div>
