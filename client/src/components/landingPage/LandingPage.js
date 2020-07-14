@@ -1,21 +1,15 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
 
-import TopHero from '../shared/TopHero';
-import HeroCarousel from '../shared/HeroCarousel';
-import IconRow from '../shared/IconRow';
-import VideoHero from '../shared/VideoHero';
-import AlternatingImgTextHero from '../shared/AlternatingImgTextHero';
-import CallToAction from '../shared/CallToAction';
+import { openModal } from "../modals/openModal";
 
 const LandingPage = () => {
-  return(
+  const dispatch = useDispatch();
+  return (
     <>
-      <TopHero/>
-      <HeroCarousel/>
-      <IconRow/>
-      <VideoHero/>
-      <AlternatingImgTextHero/>
-      <CallToAction/>
+      <div className='btn btn-primary' onClick={() => openModal(dispatch, 'signup')}>
+        open modal
+      </div>
     </>
   )
 };
