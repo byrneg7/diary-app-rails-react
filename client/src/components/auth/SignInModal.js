@@ -16,12 +16,19 @@ const SignInModal = ({handleSubmit, reset}) => {
     <Field key={name} component={FormField} type={type} label={label} name={name} placeholder={placeholder}/>
   ));
 
-  const onSubmit = ({email, password, password_confirmation}) => {
-    const user = {user: {email, password, password_confirmation}};
+  const onSubmit = ({email, password}) => {
+    const user = {user: {email, password}};
     apiClient.post('/login', user, {withCredentials: true})
       .then(res => {
         apiClient.get('/user')
-          .then(res => dispatch({type: FETCH_USER, payload: res.data}))
+          .then(res => {
+            if (res) {
+              console.log('logged in: ', res)
+              dispatch({type: FETCH_USER, payload: res.data})
+            } else {
+              console.log('not logged in')
+            }
+          })
           .catch(err => console.log(err))
       })
       .catch(e => console.log(e))

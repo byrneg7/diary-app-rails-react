@@ -34,20 +34,19 @@ const SignUpModal = ({handleSubmit, reset}) => {
     </Form>
   );
 
-  const onSubmit = ({email, password, _password_confirmation}) => {
-    const user = {user: {email, password}};
-    apiClient.post('/register', user, {withCredentials: true})
+  const onSubmit = (user) => {
+    apiClient.post('/users', {user}, {withCredentials: true})
       .then(res => {
-        apiClient.get('/user')
-          .then(res => dispatch({type: FETCH_USER, payload: res.data}))
-          .catch(err => console.log(err))
+        if (res.data.status === 'created') {
+          dispatch({type: FETCH_USER, payload: res.user});
+          alert('logged in')
+        } else {
+          alert('failed')
+        }
       })
-      .catch(e => console.log(e))
-      .finally(() => {
-        reset();
-        dispatch({type: TOGGLE_MODAL_OFF})
-      })
+      .catch(error => console.log('api errors:', error))
   };
+
 
   return <GenericModal title='Sign up' body={bodyContent()} footer='footer content' name='signup'/>
 };

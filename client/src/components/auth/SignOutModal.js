@@ -3,14 +3,17 @@ import { useDispatch } from "react-redux";
 
 import GenericModal from "../helpers/GenericModal";
 import { CLEAR_USER, TOGGLE_MODAL_OFF } from "../../reducers/types";
+import apiClient from "../../services/axiosConfig";
 
 const SignOutModal = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch({type: CLEAR_USER});
-    dispatch({type:TOGGLE_MODAL_OFF});
-    sessionStorage.removeItem('jwtToken')
+    apiClient.delete('/logout', {withCredentials: true})
+      .then(response => {
+        dispatch({type: CLEAR_USER});
+      })
+      .catch(error => console.log(error))
   };
 
   const bodyContent = () => (

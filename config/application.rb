@@ -17,6 +17,8 @@ Bundler.require(*Rails.groups)
 
 module DiaryApi
   class Application < Rails::Application
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
     config.load_defaults 6.0
     config.autoload_paths += %W( lib/ )
     config.api_only = true

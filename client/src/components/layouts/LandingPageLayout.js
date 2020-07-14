@@ -1,9 +1,10 @@
 import React from 'react';
+import LandingNav from "../shared/navbar/LandingNav";
 
 const LandingPageLayout = ({ children }) => {
   return (
     <>
-      <div> landing navbar </div>
+      <LandingNav/>
       {children}
       <div> footer </div>
     </>

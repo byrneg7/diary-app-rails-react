@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  include ::ActionController::Cookies
+
   def index
     @users = User.all
     if @users

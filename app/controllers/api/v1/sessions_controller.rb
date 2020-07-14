@@ -29,7 +29,6 @@ class Api::V1::SessionsController < ApplicationController
       }
     end
   end
-
   def destroy
     logout!
     render json: {
@@ -37,9 +36,7 @@ class Api::V1::SessionsController < ApplicationController
         logged_out: true
     }
   end
-
   private
-
   def session_params
     params.require(:user).permit(:username, :email, :password)
   end
