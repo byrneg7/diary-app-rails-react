@@ -7,6 +7,11 @@ export const REGISTER_FORM_FIELDS = [
 
 
 export const LOGIN_FORM_FIELDS = [
-  {label: 'Email Address', name: 'email', email: 'text', placeholder: "Email..."},
+  {label: 'Email Address', name: 'email', type: 'email', placeholder: "Email..."},
   {label: 'Password', name: 'password', type: 'password', placeholder: "Password..."},
+];
+
+export const JOURNAL_FORM_FIELDS = [
+  {label: 'Title', name: 'title', type: 'text', placeholder: "Title..."},
+  {label: 'Description', name: 'description', type: 'text', placeholder: "Description..."},
 ];

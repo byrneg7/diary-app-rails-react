@@ -20,7 +20,7 @@ const SignInModal = ({handleSubmit, reset}) => {
     const user = {user: {email, password}};
     apiClient.post('/login', user, {withCredentials: true})
       .then(res => {
-        apiClient.get('/user')
+        apiClient.get('/users')
           .then(res => {
             if (res) {
               console.log('logged in: ', res)
