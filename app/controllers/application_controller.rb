@@ -26,6 +26,14 @@ class ApplicationController < ActionController::Base
     session.clear
   end
 
+  def authenticate_user
+    current_user ? current_user : unauthorize
+  end
+
+  def unauthorize
+    render json: {error: :unauthorized}, status: 401
+  end
+
 end
 
 
