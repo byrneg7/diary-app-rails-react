@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router";
 import apiClient from "../../services/axiosConfig";
+import { Button, Col, Form } from "react-bootstrap";
+import { Field, reduxForm } from "redux-form";
+import { FETCH_USER, TOGGLE_MODAL_OFF } from "../../reducers/types";
+import { PAGE_FORM_FIELDS, REGISTER_FORM_FIELDS } from "../constants/FormFields";
+import FormField from "../helpers/FormField";
+import Page from "../pages/Page";
 
-const Journal = ({location, match}) => {
+const Journal = ({handleSubmit, match}) => {
   const [journal, setJournal] = useState(null);
   useEffect(() => {
     fetchJournal()
@@ -21,6 +27,7 @@ const Journal = ({location, match}) => {
         <div>
           <h2> {journal.title} </h2>
           <h3> {journal.description} </h3>
+          <Page journal={journal}/>
         </div>
       )
     }

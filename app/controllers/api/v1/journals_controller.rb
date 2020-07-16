@@ -13,15 +13,9 @@ class Api::V1::JournalsController < ApplicationController
 
   def create
     if new_journal.save!
-      render json: {
-        status: 201,
-        journal: new_journal
-      }
+      render json: { status: 201, journal: new_journal }
     else
-      render json: {
-        status: 500,
-        errors: new_journal.errors.full_messages
-      }
+      render json: { status: 500, errors: new_journal.errors.full_messages }
     end
   end
 

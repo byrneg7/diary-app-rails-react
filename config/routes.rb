@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
       resources :users, only: %i[create show index]
 
-      resources :journals, only: %i[create show index show]
+      resources :journals, only: %i[create show index show] do
+        resources :pages, only: %i[create show index show]
+      end
 
     end
   end
