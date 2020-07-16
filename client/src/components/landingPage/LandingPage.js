@@ -9,8 +9,6 @@ const LandingPage = () => {
 
   return (
     <>
-      <Link to='/journals'>create a journal</Link>
-
       <div className='btn btn-primary' onClick={() => openModal(dispatch, 'signin')}>
         sign in modal
       </div>

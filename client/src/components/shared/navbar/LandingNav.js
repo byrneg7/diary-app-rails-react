@@ -8,10 +8,16 @@ const LandingNav = () => {
 
   return (
     <div>
-      <h1> navbar </h1>
-      <Link to='/'> home page </Link>
+      <Link to='/'>
+        <h1> LogBook </h1>
+      </Link>
+      <Link to='/journals'>
+        <h3>
+          Journals
+        </h3>
+      </Link>
       {handleLoggedIn()}
-      <hr />
+      <hr/>
     </div>
   )
 };
