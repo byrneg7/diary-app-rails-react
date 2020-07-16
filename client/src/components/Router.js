@@ -6,12 +6,14 @@ import PageNotFound from "../components/misc/NotFound";
 import LandingPageLayout from "../components/layouts/LandingPageLayout";
 import LandingPage from "../components/landingPage/LandingPage";
 import JournalPage from "./journals/JournalPage";
+import Journal from "./journals/Journal";
 
 const Router = () => (
   <>
     <Switch>
       <RouteWithLayout path="/" exact component={LandingPage} layout={LandingPageLayout}/>
       <RouteWithLayout path="/journals" exact component={JournalPage} layout={LandingPageLayout}/>
+      <RouteWithLayout path="/journals/:id" exact component={Journal} layout={LandingPageLayout}/>
       <RouteWithLayout component={PageNotFound} layout={LandingPageLayout}/>
     </Switch>
   </>

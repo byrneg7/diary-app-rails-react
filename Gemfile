@@ -7,10 +7,10 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
-gem 'active_model_serializers'
 gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 gem 'foreman'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

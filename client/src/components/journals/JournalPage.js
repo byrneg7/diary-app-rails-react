@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
-
+import uniqId from 'uniqid'
 import { openModal } from "../modals/openModal";
 import apiClient from "../../services/axiosConfig";
+import { Link } from "react-router-dom";
 
 const JournalPage = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const JournalPage = () => {
   useEffect(() => {
     apiClient.get('/journals', {withCredentials: true})
       .then(res => {
-        setJournals(res.data.journals)
+        setJournals(res.data)
       })
       .catch(err => console.log(err))
   }, []);
@@ -19,7 +20,9 @@ const JournalPage = () => {
     if (journals && journals.length > 0) {
       return journals.map(journal => {
         return (
-          <h4>{journal.title}</h4>
+          <Link to={`/journals/${journal.id}`} className='my-2' key={uniqId()}>
+            <h4>{journal.title}</h4>
+          </Link>
         )
       })
     } else {
