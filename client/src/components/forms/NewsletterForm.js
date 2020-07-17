@@ -1,38 +1,22 @@
-import React from 'react'
-import { useDispatch } from "react-redux";
-import { Field, reduxForm } from "redux-form";
-import { Button, Col, Form } from "react-bootstrap";
-
-import GenericModal from "../helpers/GenericModal";
-import { FETCH_USER, TOGGLE_MODAL_OFF, TOGGLE_MODAL_ON } from "../../reducers/types";
-import FormField from "../helpers/FormField";
+import React, { Component } from 'react';
+import classnames from 'classnames';
 import { REGISTER_FORM_FIELDS } from "../constants/FormFields";
+import { Field, Form, reduxForm } from "redux-form";
+import FormField from "../helpers/FormField";
 import { EMAIL_REGEX } from "../constants/Validations";
 import apiClient from "../../services/axiosConfig";
+import { FETCH_USER } from "../../reducers/types";
+import { useDispatch } from "react-redux";
 
-const SignUpModal = ({handleSubmit, reset}) => {
-  const dispatch = useDispatch();
+const NewsletterForm = ({handleSubmit, reset}) => {
+  const dispatch = useDispatch()
+  const classNames = classnames(
+    'newsletter-form field field-grouped',
+  );
 
   const renderFields = () => REGISTER_FORM_FIELDS.map(({label, name, placeholder, type}) => (
     <Field key={name} component={FormField} type={type} label={label} name={name} placeholder={placeholder}/>
   ));
-
-  const bodyContent = () => (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Col xs="12">
-        {renderFields()}
-      </Col>
-
-      <Button type="submit">Submit form</Button>
-
-      <div>
-        Already have an account?
-        <a href='#' onClick={() => dispatch({type: TOGGLE_MODAL_ON, payload: 'signin'})}>
-          Sign in
-        </a>
-      </div>
-    </Form>
-  );
 
   const onSubmit = (user) => {
     apiClient.post('/users', {user}, {withCredentials: true})
@@ -47,8 +31,16 @@ const SignUpModal = ({handleSubmit, reset}) => {
       .catch(error => console.log('api errors:', error))
   };
 
-
-  return <GenericModal title='Sign up' body={bodyContent()} footer='footer content' name='signup'/>
+  return (
+    <Form className='hero-form newsletter-form field' onSubmit={handleSubmit(onSubmit)}>
+      {renderFields()}
+      <div className="control">
+        <button className="button button-primary button-block button-shadow w-100 mx-auto rounded" type="submit">
+          Get Started
+        </button>
+      </div>
+    </Form>
+  )
 };
 
 function validate(values) {
@@ -74,4 +66,4 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({validate, form: 'signupForm', destroyOnUnmount: false})(SignUpModal);
+export default reduxForm({validate, form: 'signupForm', destroyOnUnmount: false})(NewsletterForm);

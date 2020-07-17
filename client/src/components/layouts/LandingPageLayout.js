@@ -1,13 +1,16 @@
 import React from 'react';
-import LandingNav from "../shared/navbar/LandingNav";
+import Header from "../shared/Header";
+import Footer from "../shared/Footer";
 
-const LandingPageLayout = ({ children }) => {
+const LandingPageLayout = ({children}) => {
   return (
-    <>
-      <LandingNav/>
-      {children}
-      <div> footer </div>
-    </>
+    <div className="body-wrap boxed-container">
+      <Header/>
+      <main>
+        {children}
+      </main>
+      <Footer/>
+    </div>
   )
 };
 
