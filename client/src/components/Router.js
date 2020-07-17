@@ -25,10 +25,7 @@ const Router = () => {
     } else {
       return (
         <Switch>
-          <RouteWithLayout path="/" exact component={LandingPage} layout={LandingPageLayout}/>
-          <RouteWithLayout path="/journals" exact component={JournalPage} layout={LandingPageLayout}/>
-          <RouteWithLayout path="/journals/:id" exact component={Journal} layout={LandingPageLayout}/>
-          <RouteWithLayout component={PageNotFound} layout={LandingPageLayout}/>
+          <RouteWithLayout exact component={LandingPage} layout={LandingPageLayout}/>
         </Switch>
       )
     }
