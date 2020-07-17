@@ -4,10 +4,7 @@ class Api::V1::SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       login!
-      render json: {
-          logged_in: true,
-          user: @user
-      }
+      render json: {logged_in: true, user: Api::V1::UserSerializer.new(@user)}
     else
       render json: {
           status: 401,
@@ -18,10 +15,7 @@ class Api::V1::SessionsController < ApplicationController
 
   def is_logged_in?
     if logged_in? && current_user
-      render json: {
-          logged_in: true,
-          user: current_user
-      }
+      render json: {logged_in: true, user: Api::V1::UserSerializer.new(current_user)}
     else
       render json: {
           logged_in: false,
