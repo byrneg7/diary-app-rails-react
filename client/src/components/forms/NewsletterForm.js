@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import { REGISTER_FORM_FIELDS } from "../constants/FormFields";
 import { Field, Form, reduxForm } from "redux-form";
+import Bounce from 'react-reveal/Bounce';
+import { useDispatch } from "react-redux";
+
 import FormField from "../helpers/FormField";
 import { EMAIL_REGEX } from "../constants/Validations";
 import apiClient from "../../services/axiosConfig";
 import { FETCH_USER } from "../../reducers/types";
-import { useDispatch } from "react-redux";
 
 const NewsletterForm = ({handleSubmit, reset}) => {
   const dispatch = useDispatch()
@@ -32,14 +34,16 @@ const NewsletterForm = ({handleSubmit, reset}) => {
   };
 
   return (
-    <Form className='hero-form newsletter-form field' onSubmit={handleSubmit(onSubmit)}>
-      {renderFields()}
-      <div className="control">
-        <button className="button button-primary button-block button-shadow w-100 mx-auto rounded" type="submit">
-          Get Started
-        </button>
-      </div>
-    </Form>
+    <Bounce left>
+      <Form className='hero-form newsletter-form field' onSubmit={handleSubmit(onSubmit)}>
+        {renderFields()}
+        <div className="control">
+          <button className="button button-primary button-block button-shadow w-100 mx-auto rounded" type="submit">
+            Get Started
+          </button>
+        </div>
+      </Form>
+    </Bounce>
   )
 };
 

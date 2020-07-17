@@ -6,7 +6,7 @@ import HeroIllustration from "../hero/HeroIllustration";
 const LandingPage = () => {
   return (
       <Hero
-        title="Organize, document and illustrate your day"
+        title="Logbook"
         content="Logbook makes it easy to create, update and manage journals. Personal diaries, fitness journals, professional ledgers and more..."
         illustration={HeroIllustration}
       />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Bounce from 'react-reveal/Bounce';
 
 import NewsletterForm from '../forms/NewsletterForm';
 
@@ -7,7 +8,7 @@ class Hero extends Component {
   }
 
   render() {
-    const { title, content } = this.props;
+    const {title, content} = this.props;
     const Illustration = this.props.illustration;
 
     return (
@@ -15,16 +16,17 @@ class Hero extends Component {
         <div className="container">
           <div className="hero-inner">
             <div className="hero-copy">
-              <div className="container-sm">
-                <h1 className="hero-title h2-mobile mt-0">{title}</h1>
-                <p className="hero-paragraph">{content}</p>
-              </div>
-
-              <NewsletterForm />
+              <Bounce left>
+                <div className="container-sm">
+                  <h1 className="hero-title h2-mobile mt-0">{title}</h1>
+                  <p className="hero-paragraph">{content}</p>
+                </div>
+              </Bounce>
+              <NewsletterForm/>
             </div>
 
             <div className="hero-illustration">
-              <Illustration />
+              <Illustration/>
             </div>
           </div>
         </div>
