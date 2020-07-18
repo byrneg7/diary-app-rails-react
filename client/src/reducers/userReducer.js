@@ -1,6 +1,10 @@
 import { CLEAR_USER, FETCH_USER } from "./types";
 
-export default (state = false, action) => {
+// auth user = {user}
+// not auth user = false
+// default = null
+
+export default (state = null, action) => {
   switch (action.type) {
     case FETCH_USER:
       return action.payload;
