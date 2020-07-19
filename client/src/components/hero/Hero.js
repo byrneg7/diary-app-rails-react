@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Bounce from 'react-reveal/Bounce';
 
-import NewsletterForm from '../forms/NewsletterForm';
+import AuthFormContainer from '../forms/AuthFormContainer';
 
 class Hero extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class Hero extends Component {
                   <p className="hero-paragraph">{content}</p>
                 </div>
               </Bounce>
-              <NewsletterForm/>
+              <AuthFormContainer/>
             </div>
 
             <div className="hero-illustration">

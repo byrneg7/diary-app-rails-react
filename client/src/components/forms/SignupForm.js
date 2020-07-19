@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
+import React from 'react';
 import { REGISTER_FORM_FIELDS } from "../constants/FormFields";
 import { Field, Form, reduxForm } from "redux-form";
-import Bounce from 'react-reveal/Bounce';
 import { useDispatch } from "react-redux";
 
 import FormField from "../helpers/FormField";
 import { EMAIL_REGEX } from "../constants/Validations";
 import apiClient from "../../services/axiosConfig";
 import { FETCH_USER } from "../../reducers/types";
+import { Link } from "react-router-dom";
+import { Row } from "react-bootstrap";
 
-const NewsletterForm = ({handleSubmit, reset}) => {
-  const dispatch = useDispatch()
-  const classNames = classnames(
-    'newsletter-form field field-grouped',
-  );
+const SignupForm = ({handleSubmit, setSignIn}) => {
+  const dispatch = useDispatch();
 
-  const renderFields = () => REGISTER_FORM_FIELDS.map(({label, name, placeholder, type}) => (
+  const renderFields = () => REGISTER_FORM_FIELDS.map(({label, name, placeholder, type}) =>
     <Field key={name} component={FormField} type={type} label={label} name={name} placeholder={placeholder}/>
-  ));
+  );
 
   const onSubmit = (user) => {
     apiClient.post('/users', {user}, {withCredentials: true})
@@ -34,16 +31,17 @@ const NewsletterForm = ({handleSubmit, reset}) => {
   };
 
   return (
-    <Bounce left>
-      <Form className='hero-form newsletter-form field' onSubmit={handleSubmit(onSubmit)}>
-        {renderFields()}
-        <div className="control">
-          <button className="button button-primary button-block button-shadow w-100 mx-auto rounded" type="submit">
-            Get Started
-          </button>
-        </div>
-      </Form>
-    </Bounce>
+    <Form className='hero-form newsletter-form field' onSubmit={handleSubmit(onSubmit)}>
+      {renderFields()}
+      <div className="control">
+        <button className="button button-primary button-block button-shadow w-100 mx-auto rounded" type="submit">
+          Get Started
+        </button>
+        <Row>
+          <Link to='#' className='font-14 no-underline mt-1 mx-auto' onClick={()=>setSignIn(true)}> Already registered? Login here </Link>
+        </Row>
+      </div>
+    </Form>
   )
 };
 
@@ -70,4 +68,4 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({validate, form: 'signupForm', destroyOnUnmount: false})(NewsletterForm);
+export default reduxForm({validate, form: 'signupForm', destroyOnUnmount: false})(SignupForm);

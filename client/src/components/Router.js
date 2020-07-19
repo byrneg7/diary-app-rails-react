@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router";
+import { useSelector } from "react-redux";
 
 import RouteWithLayout from "./hoc/RouteWithLayout";
 import PageNotFound from "../components/misc/NotFound";
@@ -7,10 +8,8 @@ import LandingPageLayout from "../components/layouts/LandingPageLayout";
 import LandingPage from "../components/landingPage/LandingPage";
 import JournalPage from "./journals/JournalPage";
 import Journal from "./journals/Journal";
-import { useSelector } from "react-redux";
 import AuthLayout from "./layouts/AuthLayout";
 import LoadingPage from "./loading/LoadingPage";
-import Test from "./layouts/TestLayout";
 
 const Router = () => {
   const user = useSelector(state => state.user);
