@@ -2,6 +2,7 @@
   <dictionary name="admin">
     <words>
       <w>fullpage</w>
+      <w>scrollpos</w>
       <w>signin</w>
       <w>unauthorize</w>
     </words>
