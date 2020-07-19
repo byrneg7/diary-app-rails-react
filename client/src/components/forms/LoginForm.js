@@ -21,7 +21,7 @@ const SignupForm = ({handleSubmit, setSignIn}) => {
     const user = {user: {email, password}};
     apiClient.post('/login', user, {withCredentials: true})
       .then(res => {
-        apiClient.get('/users')
+        apiClient.get('/users/me')
           .then(res => {
             if (res) {
               console.log('logged in: ', res)

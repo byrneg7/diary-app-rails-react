@@ -3,8 +3,11 @@ class Api::V1::SessionsController < ApplicationController
     @user = User.find_by(email: session_params[:email])
 
     if @user && @user.authenticate(session_params[:password])
+      puts '@user'
+      puts @user.inspect
+      puts '@user'
       login!
-      render json: {logged_in: true, user: Api::V1::UserSerializer.new(@user)}
+      render json: @user
     else
       render json: {
           status: 401,
