@@ -1,16 +1,16 @@
 import React from 'react';
 
-import LandingNav from "../shared/navbar/LandingNav";
 import { Button } from "react-bootstrap";
+import AuthNavContainer from "../shared/navbar/authNav/AuthNavContainer";
 
 const AuthLayout = ({children}) => {
   return (
-    <div>
+    <>
+      <AuthNavContainer/>
       <h1> auth layout</h1>
-      <LandingNav/>
       <Button> sin out</Button>
       {children}
-    </div>
+    </>
   )
 };
 

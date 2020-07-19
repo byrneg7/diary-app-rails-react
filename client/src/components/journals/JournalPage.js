@@ -40,6 +40,10 @@ const JournalPage = () => {
       <hr/>
       <h1> your journals </h1>
       {renderJournals()}
+      {renderJournals()}
+      {renderJournals()}
+      {renderJournals()}
+
     </>
   )
 };
