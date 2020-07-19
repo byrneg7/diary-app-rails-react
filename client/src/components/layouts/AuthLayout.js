@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Button } from "react-bootstrap";
-import AuthNavContainer from "../shared/navbar/authNav/AuthNavContainer";
+import AuthNavContainer from "../shared/navbar/authNav/AuthNavBar";
+import './authLayout.scss';
 
 const AuthLayout = ({children}) => {
   return (
     <>
       <AuthNavContainer/>
-      <h1> auth layout</h1>
-      <Button> sin out</Button>
-      {children}
+      <div className='below-nav'>
+        {children}
+      </div>
     </>
   )
 };

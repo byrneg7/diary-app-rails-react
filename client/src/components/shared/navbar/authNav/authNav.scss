@@ -1,6 +1,20 @@
+@import "../../../../assets/stylesheets/colours";
+
 .scroll-disappear {
   position: fixed;
   top:0;
   width: 100%;
   transition: top 0.3s;
+}
+
+.auth-appbar {
+  background-color: white !important;
+}
+
+.nav-title {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    color: #6610F1;
+  }
 }
