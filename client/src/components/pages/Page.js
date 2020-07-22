@@ -4,8 +4,6 @@ import { PAGE_FORM_FIELDS } from "../constants/FormFields";
 import { Field, reduxForm } from "redux-form";
 import FormTextArea from "../helpers/FormTextArea";
 import apiClient from "../../services/axiosConfig";
-import { Link } from "react-router-dom";
-import uniqId from "uniqid";
 
 const Page = ({journal, handleSubmit}) => {
   const [pages, setPages] = useState([]);
